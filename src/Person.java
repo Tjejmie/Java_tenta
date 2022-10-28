@@ -15,7 +15,6 @@ public class Person {
         this.age = age;
     }
 
-    
 
     public static Person getRandomPerson(){
         Person person = new Person(null, null, 0);
@@ -33,21 +32,17 @@ public class Person {
         randomL.add("D");
 
         String driverLicense = null;
-        int number = random.nextInt(101);
         ArrayList<String> newList = new ArrayList<>();
-        // Check if person should have driver license
-        if (number >= 50){
-            int randomNum = 1 + random.nextInt(4);
-            for(int i = 0; i < randomNum; i++){
-        
-                int randomIndex = random.nextInt(randomL.size());
-                newList.add(randomL.get(randomIndex));
-                // Tar bort så det inte blir dupes
-                randomL.remove(randomIndex);
-            }
-            driverLicense = String.join("", newList);
+
+        int randomNum =  random.nextInt(1);
+        for(int i = 0; i < randomNum; i++){
+            int randomIndex = random.nextInt(randomL.size());
+            newList.add(randomL.get(randomIndex));
+            // Tar bort så det inte blir dupes
+            randomL.remove(randomIndex);
         }
-      
+        driverLicense = String.join("", newList);
+        
         person.setName(randomFirstName, randomLastName);
         int randomAge = random.nextInt(81);
         person.setAge(randomAge);
