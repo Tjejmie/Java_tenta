@@ -8,14 +8,14 @@ public class Task1 {
         Vehicle vehicle = new Vehicle(null, 0, null);
 
         // --------------- Person -------------
-        String firstName = console.readLine("Vilket förnamn ska personen ha?  ");
-        String lastName = console.readLine("Vilket efternamn ska personen ha?  ");
-        person.setName(firstName, lastName);
-        int age = Integer.parseInt(console.readLine("Vilken ålder ska personen ha?  "));
-        person.setAge(age);
-        String driverLicense = console.readLine("Vilket körkort ska personen ha?  ");
-        person.setDriversLicense(driverLicense);
-        System.out.println(person);
+        // String firstName = console.readLine("Vilket förnamn ska personen ha?  ");
+        // String lastName = console.readLine("Vilket efternamn ska personen ha?  ");
+        // person.setName(firstName, lastName);
+        // int age = Integer.parseInt(console.readLine("Vilken ålder ska personen ha?  "));
+        // person.setAge(age);
+        // String driverLicense = console.readLine("Vilket körkort ska personen ha?  ");
+        // person.setDriversLicense(driverLicense);
+        // System.out.println(person);
 
         // --------------- Veichle -------------
         String regNr = console.readLine("Vilket registreringsnummer ska fordonet ha?  ");
