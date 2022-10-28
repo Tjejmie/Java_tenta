@@ -19,9 +19,13 @@ public abstract class Vehicle {
     }
 
     public void changeDriver(Person person){
-        driver = getDriver();
-        addPassenger(driver);
-        setDriver(person);
+        Person activeDriver = getDriver();
+        try {
+            setDriver(person);
+            addPassenger(activeDriver);
+        } catch (VehicleException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     public ArrayList<Person> getPassengers(){
@@ -38,7 +42,7 @@ public abstract class Vehicle {
         }
     }
 
-    public void setDriver(Person driver){
+    public void setDriver(Person driver) throws VehicleException {
         this.driver = driver;
     }
 
