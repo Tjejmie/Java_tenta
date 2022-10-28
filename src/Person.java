@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -20,19 +21,39 @@ public class Person {
 
         String [] firstNames = {"Lisa", "Maria", "Max", "Lukas", "Adam"};
         String [] lastNames = {"Svensson", "Andersson", "Lindquist", "Gunnarsson", "Olsson"};
-        String [] driverLicenses = {"license1", "license2", "license3", "license4", "noLicense"};
         String randomFirstName = firstNames[random.nextInt(firstNames.length)];
         String randomLastName = lastNames[random.nextInt(lastNames.length)];
-        String randomDriverLicense = driverLicenses[random.nextInt(driverLicenses.length)];
-        person.setName(randomFirstName, randomLastName);
 
+        ArrayList<String> randomL = new ArrayList<>();
+        randomL.add("A");
+        randomL.add("B");
+        randomL.add("C");
+        randomL.add("D");
+
+        String driverLicense = null;
+        int number = random.nextInt(101);
+        ArrayList<String> newList = new ArrayList<>();
+        // Check if person should have driver license
+        if (number >= 50){
+            int randomNum = 1 + random.nextInt(4);
+            for(int i = 0; i < randomNum; i++){
+        
+                int randomIndex = random.nextInt(randomL.size());
+                newList.add(randomL.get(randomIndex));
+                // Tar bort så det inte blir dupes
+                randomL.remove(randomIndex);
+            }
+            driverLicense = String.join("", newList);
+        }
+      
+        person.setName(randomFirstName, randomLastName);
         int randomAge = random.nextInt(81);
         person.setAge(randomAge);
-      
-        person.setDriversLicense(randomDriverLicense);
-        return person;
+        person.setDriversLicense(driverLicense);
         
+        return person;
     }
+
 
     public void setName(String firstName, String lastName){
         this.firstName = firstName;
@@ -53,16 +74,16 @@ public class Person {
         return age;
     }
     public void setDriversLicense(String license){
-
-        HashMap<String, String> licenses = new HashMap<String, String>();
-        licenses.put("license1", "B");
-        licenses.put("license2", "AB");
-        licenses.put("license3", "BCD");
-        licenses.put("license4", "DA");
-        licenses.put("noLicense", null);
-
-        this.driversLicense = licenses.getOrDefault(license, null);
-  
+        if (license == null){
+            this.driversLicense = null;
+        }
+        else if (license.toUpperCase().contains("A") || license.toUpperCase().contains("B") || license.toUpperCase().contains("C") || license.toUpperCase().contains("D")){
+            this.driversLicense = license;
+        }
+        else{
+            this.driversLicense = null;
+        }
+        
     }
     public String getDriversLicense(){
         return driversLicense;
