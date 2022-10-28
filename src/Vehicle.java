@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Vehicle {
+public abstract class Vehicle {
     
     private String registrationNumber;
     private int passengerCapacity;
