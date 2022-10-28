@@ -72,10 +72,7 @@ public class Person {
         return age;
     }
     public void setDriversLicense(String license){
-        if (license == null){
-            this.driversLicense = null;
-        }
-        else if (license.toUpperCase().contains("A") || license.toUpperCase().contains("B") || license.toUpperCase().contains("C") || license.toUpperCase().contains("D")){
+        if (license != null && license.toUpperCase().contains("A") || license.toUpperCase().contains("B") || license.toUpperCase().contains("C") || license.toUpperCase().contains("D")){
             this.driversLicense = license;
         }
         else{
