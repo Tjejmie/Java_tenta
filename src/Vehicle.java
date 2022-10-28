@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public abstract class Vehicle {
     
-    private String registrationNumber;
-    private int passengerCapacity;
-    private Person driver;
-    private ArrayList<Person> passengers = new ArrayList<>();
+    protected String registrationNumber;
+    protected int passengerCapacity;
+    protected Person driver;
+    protected ArrayList<Person> passengers = new ArrayList<>();
 
     public Vehicle(String registrationNumber, int passengerCapacity) {
         this.registrationNumber = registrationNumber;

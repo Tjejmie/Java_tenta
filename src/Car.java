@@ -11,7 +11,7 @@ public class Car extends Vehicle {
     }
     public String toString(){
         
-        String message = String.format("Vehicle = Car");
+        String message = super.toString() + ", Vehicle: Car";
         return message;
     }
     

@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -31,30 +32,28 @@ public class Person {
         randomL.add("D");
 
         String driverLicense = null;
-        int number = random.nextInt(101);
         ArrayList<String> newList = new ArrayList<>();
-        // Check if person should have driver license
-        if (number >= 50){
-            int randomNum = 1 + random.nextInt(4);
-            for(int i = 0; i < randomNum; i++){
         
-                int randomIndex = random.nextInt(randomL.size());
-                newList.add(randomL.get(randomIndex));
-                // Tar bort så det inte blir dupes
-                randomL.remove(randomIndex);
-            }
-            driverLicense = String.join("", newList);
+        // Random nummer, 0 = inget körtkort
+        int randomNum =  random.nextInt(randomL.size());
+        for(int i = 0; i < randomNum; i++){
+            int randomIndex = random.nextInt(randomL.size());
+            newList.add(randomL.get(randomIndex));
+            // Tar bort så det inte blir dupes
+            randomL.remove(randomIndex);
         }
-      
+        Collections.sort(newList);
+        driverLicense = String.join("", newList);
+        
         person.setName(randomFirstName, randomLastName);
         int randomAge = random.nextInt(81);
         person.setAge(randomAge);
         person.setDriversLicense(driverLicense);
-        
+
         return person;
     }
 
-
+    
     public void setName(String firstName, String lastName){
         this.firstName = firstName;
         this.lastName = lastName;
