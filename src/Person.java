@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -33,14 +34,16 @@ public class Person {
 
         String driverLicense = null;
         ArrayList<String> newList = new ArrayList<>();
-
-        int randomNum =  random.nextInt(1);
+        
+        // Random nummer, 0 = inget körtkort
+        int randomNum =  random.nextInt(randomL.size());
         for(int i = 0; i < randomNum; i++){
             int randomIndex = random.nextInt(randomL.size());
             newList.add(randomL.get(randomIndex));
             // Tar bort så det inte blir dupes
             randomL.remove(randomIndex);
         }
+        Collections.sort(newList);
         driverLicense = String.join("", newList);
         
         person.setName(randomFirstName, randomLastName);
